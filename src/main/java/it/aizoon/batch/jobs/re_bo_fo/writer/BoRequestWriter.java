@@ -18,9 +18,10 @@ public class BoRequestWriter extends JdbcBatchItemWriter<Request> {
         setDataSource(dataSource);
         setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
 
+        setAssertUpdates(false);
+
         setSql(
-                "UPDATE BO_DOMANDE" +
-                        "SET rendicontazione = :approved, money_amount_finale = :moneyAmountFinale, note = :note " +
+                "UPDATE BO_DOMANDE SET rendicontazione = :approved, money_amount_finale = :moneyAmountFinale, note = :note " +
                 "WHERE id_domanda = :requestId;"
         );
     }

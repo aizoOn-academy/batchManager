@@ -18,9 +18,10 @@ public class FoRequestWriter extends JdbcBatchItemWriter<Request> {
         setDataSource(dataSource);
         setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
 
+        setAssertUpdates(false);
+
         setSql(
-                "UPDATE fo_stato_domanda" +
-                        "SET approvato = :approved, importo_concesso = :moneyAmountFinale, note = :note " +
+                "UPDATE fo_stato_domanda SET approvato = :approved, importo_concesso = :moneyAmountFinale, note = :note " +
                         "WHERE user_info_id = :requestId;"
         );
     }
