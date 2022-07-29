@@ -22,25 +22,25 @@ public class DataSourceConfigurations {
     @Bean
     public DataSource frontOfficeDB() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/frontOffice");
-        dataSourceBuilder.username("root");
-        dataSourceBuilder.password("root");
+        dataSourceBuilder.url("jdbc:mysql://10.244.244.146:3310/frontoffice");
+        dataSourceBuilder.username("frontoffice");
+        dataSourceBuilder.password("frontoffice2022");
         return dataSourceBuilder.build();
     }
 
     @Bean
     public DataSource backOfficeDB() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/backOffice");
-        dataSourceBuilder.username("root");
-        dataSourceBuilder.password("root");
+        dataSourceBuilder.url("jdbc:mysql://10.244.244.146:3311/backoffice");
+        dataSourceBuilder.username("backoffice");
+        dataSourceBuilder.password("backoffice123");
         return dataSourceBuilder.build();
     }
 
     @Bean
     public DataSource rendicontazioneDB() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/rendicontazione");
+        dataSourceBuilder.url("jdbc:mysql://10.244.244.146:3312/rendicontazione");
         dataSourceBuilder.username("root");
         dataSourceBuilder.password("root");
         return dataSourceBuilder.build();
