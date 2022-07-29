@@ -2,12 +2,11 @@ package it.aizoon.batch.jobs.bo_re.writers;
 
 import javax.sql.DataSource;
 
+import it.aizoon.batch.jobs.bo_re.model.Operator;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import it.aizoon.batch.jobs.bo_re.model.Operator;
 
 @Component
 public class ReOperatorWriter extends JdbcBatchItemWriter<Operator> {
