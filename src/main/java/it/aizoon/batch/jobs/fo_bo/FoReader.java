@@ -17,7 +17,14 @@ public class FoReader extends JdbcCursorItemReader<Request> {
         setRowMapper(new RequestMapper());
         setDataSource(dataSource);
         setSql(
-            "SELECT * FROM fo_user_info WHERE finish_announcement = TRUE"
+            "SELECT " +
+                    "fo_user_info.user_info_id AS user_info_id," +
+                    "cfBeneficiary, name, surname, address, cap, city, state," +
+                    "phoneNumber, requiredAmount, iban, finish_announcement," +
+                    "id_bando, approvato, importo_concesso, note" +
+                    " FROM fo_user_info, fo_stato_domanda WHERE finish_announcement = TRUE" +
+                    " AND fo_user_info.user_info_id = fo_stato_domanda.user_info_id" +
+                    " AND approvato IS NULL;"
         );
     }
 

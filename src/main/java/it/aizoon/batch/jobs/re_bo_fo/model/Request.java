@@ -1,4 +1,4 @@
-package it.aizoon.batch.jobs.fo_bo.model;
+package it.aizoon.batch.jobs.re_bo_fo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ public class Request {
     
     private Long requestId;
     private Long announcementId;
+    private Long operatorId;
     private String applicantFiscalCode;
     private String applicantName;
     private String applicantSurname;

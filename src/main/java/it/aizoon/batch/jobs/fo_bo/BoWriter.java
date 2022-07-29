@@ -18,15 +18,14 @@ public class BoWriter extends JdbcBatchItemWriter<Request> {
         setDataSource(dataSource);
         setItemSqlParameterSourceProvider( new BeanPropertyItemSqlParameterSourceProvider<>() );
 
-
-        //TODO: set the SQL query to write the data to the back office database 
+        setAssertUpdates(false);
         setSql(
-            "INSERT INTO BO_DOMANDE (id_domanda, id_bando, cf_beneficiario, nome, " +
+            "INSERT IGNORE INTO BO_DOMANDE (id_domanda, id_bando, cf_beneficiario, nome, " +
                 "cognome, indirizzo, cap, citta, " +
-                "nazione, telefono, importo, iban) " +
+                "nazione, telefono, importo, iban, note) " +
                 "VALUES (:requestId, :announcementId, :applicantFiscalCode, :applicantName, " +
                 ":applicantSurname, :applicantAddress, :applicantCityCap, :applicantCity, " +
-                ":applicantNation, :applicantPhone, :moneyAmount, :applicantIban) "
+                ":applicantNation, :applicantPhone, :moneyAmount, :applicantIban, :note)"
         );
         
     }
