@@ -31,6 +31,10 @@ public class BatchApplication {
 			ctx.getBean("boToReMigrationJob", Job.class)
 		);
 
+		jobs.add(
+			ctx.getBean("reToBoAndFoMigrationJob", Job.class)
+		);
+
 		JobLauncher jobLauncher = (JobLauncher) ctx.getBean("jobLauncher");
 		for(Job job : jobs) {
 			JobParameters jobParameters = new JobParametersBuilder()
